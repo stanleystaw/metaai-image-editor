@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: metaai-image-editor
+    runtime: docker
+    plan: free
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      # Paste the complete Cookie request-header value here. The app extracts
+      # datr, ecto_1_sess and any other cookies automatically.
+      - key: META_AI_COOKIE
+        sync: false
+      - key: META_AI_API_KEY
+        generateValue: true
+      - key: META_AI_HEADED
+        value: "false"
+      - key: META_AI_MAX_UPLOAD_BYTES
+        value: "15728640"
